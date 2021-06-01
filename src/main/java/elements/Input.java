@@ -15,11 +15,11 @@ public class Input {
         this.label = label;
     }
 
-    public void writeTextToAccountInput(String text) {
+    public void writeTextIntoAccountInput(String text) {
         driver.findElement(By.xpath(String.format(ACCOUNT_INPUT_XPATH, label))).sendKeys(text);
     }
 
-    public void writeTextToContactInput(String text) {
+    public void writeTextIntoContactInput(String text) {
         driver.findElement(By.xpath(String.format(CONTACT_INPUT_XPATH, label))).sendKeys(text);
     }
 }

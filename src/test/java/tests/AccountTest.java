@@ -10,9 +10,11 @@ public class AccountTest extends BaseTest {
         loginPage
                 .openPage(LOGIN_URL)
                 .login(LOGIN, PASSWORD);
-        newAccountModalPage.openPage(ACCOUNT_CREATION_MODAL_URL)
+        newAccountModalPage
+                .openPage(ACCOUNT_CREATION_MODAL_URL)
                 .createAccount("Account 1", "www.tut.by", "Customer", "Apparel", "Save");
-        accountListPage.openPage(ACCOUNTS_LIST_URL);
+        accountListPage
+                .openPage(ACCOUNTS_LIST_URL);
         Assert.assertEquals(accountListPage.getAccountNameFromRowNumber("1"), "Account 1");
     }
 
@@ -22,9 +24,11 @@ public class AccountTest extends BaseTest {
         loginPage
                 .openPage(LOGIN_URL)
                 .loginPageFactory(LOGIN, PASSWORD);
-        newAccountModalPage.openPage(ACCOUNT_CREATION_MODAL_URL)
+        newAccountModalPage
+                .openPage(ACCOUNT_CREATION_MODAL_URL)
                 .createAccount("Account 1", "www.tut.by", "Customer", "Apparel", "Save");
-        accountListPage.openPage(ACCOUNTS_LIST_URL);
+        accountListPage
+                .openPage(ACCOUNTS_LIST_URL);
         Assert.assertEquals(accountListPage.getAccountNameFromRowNumber("1"), "Account 1");
     }
 }
