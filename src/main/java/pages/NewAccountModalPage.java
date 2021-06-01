@@ -17,8 +17,8 @@ public class NewAccountModalPage extends BasePage {
     }
 
     public void createAccount(String accountName, String website,String type,String industry,String button) {
-        new Input(driver,"Account Name").writeText(accountName);
-        new Input(driver,"Website").writeText(website);
+        new Input(driver,"Account Name").writeTextToAccountInput(accountName);
+        new Input(driver,"Website").writeTextToAccountInput(website);
         new Dropdown(driver,"Type").selectOption(type);
         new Dropdown(driver,"Industry").selectOption(industry);
         new Button(driver,"Save").clickButton(button);
