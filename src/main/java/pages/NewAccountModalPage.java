@@ -3,6 +3,7 @@ package pages;
 import elements.Button;
 import elements.Dropdown;
 import elements.Input;
+import objects.Account;
 import org.openqa.selenium.WebDriver;
 
 public class NewAccountModalPage extends BasePage {
@@ -16,11 +17,13 @@ public class NewAccountModalPage extends BasePage {
         return this;
     }
 
-    public void createAccount(String accountName, String website,String type,String industry,String button) {
-        new Input(driver,"Account Name").writeTextIntoAccountInput(accountName);
-        new Input(driver,"Website").writeTextIntoAccountInput(website);
-        new Dropdown(driver,"Type").selectOption(type);
-        new Dropdown(driver,"Industry").selectOption(industry);
-        new Button(driver,"Save").clickButton(button);
+    public void createAccount(Account account) {
+        new Input(driver,"Account Name").writeTextIntoAccountInput(account.getAccountName());
+        new Input(driver,"Website").writeTextIntoAccountInput(account.getWebsite());
+        new Dropdown(driver,"Type").selectOption(account.getType());
+        new Dropdown(driver,"Industry").selectOption(account.getIndustry());
+        new Button(driver,"Save").clickButton(account.getButton());
+        new Input(driver,"Phone").writeTextIntoAccountInput(account.getPhone());
+        new Input(driver,"Description").writeTextIntoAccountInput(account.getDescription());
     }
 }

@@ -2,8 +2,9 @@ package elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.Waiters;
 
-public class Input {
+public class Input extends Waiters {
 
     WebDriver driver;
     String label;
