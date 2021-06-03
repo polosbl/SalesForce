@@ -1,7 +1,9 @@
 package pages;
 
+import elements.Button;
 import elements.Dropdown;
 import elements.Input;
+import objects.Account;
 import org.openqa.selenium.WebDriver;
 
 public class NewAccountModalPage extends BasePage {
@@ -10,16 +12,18 @@ public class NewAccountModalPage extends BasePage {
         super(driver);
     }
 
-    private static final String URL = "https://onliner2.lightning.force.com/lightning/o/Account/new";
-
-    public void openPage() {
-        driver.get(URL);
+    public NewAccountModalPage openPage(String url) {
+        driver.get(url);
+        return this;
     }
 
-    public void createAccount(String accountName, String website,String type,String industry) {
-        new Input(driver,"Account Name").writeText(accountName);
-        new Input(driver,"Website").writeText(website);
-        new Dropdown(driver,"Type").selectOption(type);
-        new Dropdown(driver,"Industry").selectOption(industry);
+    public void createAccount(Account account) {
+        new Input(driver,"Account Name").writeTextIntoAccountInput(account.getAccountName());
+        new Input(driver,"Website").writeTextIntoAccountInput(account.getWebsite());
+        new Dropdown(driver,"Type").selectOption(account.getType());
+        new Dropdown(driver,"Industry").selectOption(account.getIndustry());
+        new Button(driver,"Save").clickButton(account.getButton());
+        new Input(driver,"Phone").writeTextIntoAccountInput(account.getPhone());
+        new Input(driver,"Description").writeTextIntoAccountInput(account.getDescription());
     }
 }
